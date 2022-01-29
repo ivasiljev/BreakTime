@@ -1,6 +1,8 @@
-﻿namespace BreakTime.Logic
+﻿using BreakTime.Interfaces;
+
+namespace BreakTime.Logic
 {
-    public class MainLogic
+    public class MainLogic : IMainLogic
     {
         private SettingsView SettingsViewImp;
         private Entities.SettingsStorage SettingsStorage;

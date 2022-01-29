@@ -10,6 +10,6 @@ namespace BreakTime.Interfaces
         string WorkSoundPath { get; set; }
         string BreakSoundPath { get; set; }
 
-        void DuplicateSettings(ISettingsStorage settingsStorage);
+        void SetSettings(ISettingsStorage settingsStorage);
     }
 }

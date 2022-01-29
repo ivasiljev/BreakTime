@@ -2,13 +2,14 @@
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using BreakTime.Interfaces;
+using System;
 
 namespace BreakTime.Entities
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class SettingsStorage : ISettingsStorage
-    { 
-        public event PropertyChangedEventHandler PropertyChanged; 
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private int _volume = 0;
         [JsonProperty]
@@ -45,7 +46,7 @@ namespace BreakTime.Entities
                 OnPropertyChanged("BreakTime");
             }
         }
-        
+
         private string _workSoundPath = "";
         [JsonProperty]
         public string WorkSoundPath
@@ -57,7 +58,7 @@ namespace BreakTime.Entities
                 OnPropertyChanged("WorkSoundPath");
             }
         }
-        
+
         private string _breakSoundPath = "";
         [JsonProperty]
         public string BreakSoundPath
@@ -70,37 +71,19 @@ namespace BreakTime.Entities
             }
         }
 
-        public SettingsStorage(int volume, string workTime, string breakTime, string workSoundPath, string breakSoundPath)
-        {
-            SetSettings(volume, workTime, breakTime, workSoundPath, breakSoundPath);
-        }
+        public SettingsStorage() => 
+            SetSettings(volume: 100, workTime: "010000", breakTime: "000500", workSoundPath: "", breakSoundPath: "");
 
-        public SettingsStorage()
-        {
-            SetSettings(100, "010000", "000500", "", "");
-        }
+        public SettingsStorage(ISettingsStorage settings) => SetSettings(settings);
 
-        public SettingsStorage(ISettingsStorage settings)
-        {
-            DuplicateSettings(settings);
-        }
+        public void SetSettings(int volume, string workTime, string breakTime, string workSoundPath, string breakSoundPath) =>
+            (Volume, WorkTime, BreakTime, WorkSoundPath, BreakSoundPath) =
+            (volume, workTime, breakTime, workSoundPath, breakSoundPath);
 
-        public void SetSettings(int volume, string workTime, string breakTime, string workSoundPath, string breakSoundPath)
+        public void SetSettings(ISettingsStorage settings)
         {
-            Volume = volume;
-            WorkTime = workTime;
-            BreakTime = breakTime;
-            WorkSoundPath = workSoundPath;
-            BreakSoundPath = breakSoundPath;
-        }
-
-        public void DuplicateSettings(ISettingsStorage settings)
-        {
-            Volume = settings.Volume;
-            WorkTime = settings.WorkTime;
-            BreakTime = settings.BreakTime;
-            WorkSoundPath = settings.WorkSoundPath;
-            BreakSoundPath = settings.BreakSoundPath;
+            if (settings is null) throw new ArgumentNullException();
+            SetSettings(settings.Volume, settings.WorkTime, settings.BreakTime, settings.WorkSoundPath, settings.BreakSoundPath);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

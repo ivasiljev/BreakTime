@@ -1,14 +1,17 @@
-﻿using System.Windows.Forms;
+﻿using BreakTime.Interfaces;
+using System;
+using System.Windows.Forms;
 using static BreakTime.EventHandlers.SettingsViewEventHandler;
 
 namespace BreakTime.Logic
 {
     public class SettingsView
     {
-        private MainLogic MainLogic;
+        private IMainLogic MainLogic;
 
-        public SettingsView(MainLogic mainLogic)
+        public SettingsView(IMainLogic mainLogic)
         {
+            _ = mainLogic ?? throw new ArgumentNullException();
             MainLogic = mainLogic;
             OnChooseWorkMusicButtonClicked += ChooseWorkMusic;
             OnChooseBreakMusicButtonClicked += ChooseBreakMusic;

@@ -39,10 +39,8 @@
             this.setTime1 = new BreakTime.TimeSetter();
             this.setTime2 = new BreakTime.TimeSetter();
             this.volume1 = new BreakTime.SettingsMenu.Volume();
-            this.musicIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblWorkMusicPath = new System.Windows.Forms.Label();
             this.lblBreakMusicPath = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.musicIOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveSettings
@@ -149,10 +147,6 @@
             this.volume1.TabIndex = 53;
             this.volume1.Value = 0;
             // 
-            // musicIOBindingSource
-            // 
-            this.musicIOBindingSource.DataSource = typeof(BreakTime.IO.Music.MusicIO);
-            // 
             // lblWorkMusicPath
             // 
             this.lblWorkMusicPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -175,7 +169,7 @@
             this.lblBreakMusicPath.TabIndex = 55;
             this.lblBreakMusicPath.Tag = "SettingTime";
             this.lblBreakMusicPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblBreakMusicPath.TextChanged += new System.EventHandler(this.lblBreakMusicPath_TextChanged);
+            this.lblBreakMusicPath.TextChanged += new System.EventHandler(this.BreakMusicPathChanged);
             // 
             // Settings
             // 
@@ -195,7 +189,6 @@
             this.Controls.Add(this.lblWorkMusicPath);
             this.Name = "Settings";
             this.Size = new System.Drawing.Size(370, 191);
-            ((System.ComponentModel.ISupportInitialize)(this.musicIOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,7 +205,6 @@
         private TimeSetter setTime2;
         private TimeSetter setTime1;
         private SettingsMenu.Volume volume1;
-        private System.Windows.Forms.BindingSource musicIOBindingSource;
         private System.Windows.Forms.Label lblWorkMusicPath;
         private System.Windows.Forms.Label lblBreakMusicPath;
     }

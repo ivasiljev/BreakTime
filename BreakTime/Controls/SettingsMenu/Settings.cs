@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Windows.Forms;
 using static BreakTime.EventHandlers.SettingsViewEventHandler;
-using BreakTime.Entities;
-using System.ComponentModel;
 
 namespace BreakTime
 {
@@ -17,40 +15,37 @@ namespace BreakTime
 
         private void BindControls()
         {
-            DataBinders.BindSettings.BindControl(lblWorkMusicPath, "Text", "WorkSoundPath");
-            DataBinders.BindSettings.BindControl(lblBreakMusicPath, "Text", "BreakSoundPath");
-            DataBinders.BindSettings.BindControl(volume1, "Value", "Volume");
-            DataBinders.BindSettings.BindControl(setTime1, "Time", "WorkTime");
-            DataBinders.BindSettings.BindControl(setTime2, "Time", "BreakTime");
+            DataBinders.BindSettings.BindControl(control: lblWorkMusicPath,  propertyName: "Text",  dataMemberName: "WorkSoundPath");
+            DataBinders.BindSettings.BindControl(control: lblBreakMusicPath, propertyName: "Text",  dataMemberName: "BreakSoundPath");
+            DataBinders.BindSettings.BindControl(control: volume1,           propertyName: "Value", dataMemberName: "Volume");
+            DataBinders.BindSettings.BindControl(control: setTime1,          propertyName: "Time",  dataMemberName: "WorkTime");
+            DataBinders.BindSettings.BindControl(control: setTime2,          propertyName: "Time",  dataMemberName: "BreakTime");
         }
 
-        // Нажата кнопка выбора мелодии для окончания работы, выбирается музыкальный файл
         private void btnChooseSoundWork_Click(object sender, EventArgs e)
         {
-            lblWorkMusicPath.Text = ChooseWorkMusicButtonClicked();
+            string chosenMusic = ChooseWorkMusicButtonClicked();
+            if (chosenMusic is not null)
+                lblWorkMusicPath.Text = chosenMusic;
         }
 
-        // Нажата кнопка выбора мелодии для окончания перерыва, выбирается музыкальный файл
         private void btnChooseSoundBreak_Click(object sender, EventArgs e)
         {
-            lblBreakMusicPath.Text = ChooseBreakMusicButtonClicked();
+            string chosenMusic = ChooseBreakMusicButtonClicked();
+            if (chosenMusic is not null)
+                lblBreakMusicPath.Text = chosenMusic;
         }
 
-        private void btnSaveSettings_Click(object sender, EventArgs e)
-        {
+        private void btnSaveSettings_Click(object sender, EventArgs e) =>
             SaveSettingsClicked();
-        }
 
-        private void WorkMusicPathChanged(object sender, EventArgs e)
-        {
+        private void WorkMusicPathChanged(object sender, EventArgs e) =>
             lblMusicWork.Text = ExtractFileNameFromPath(lblWorkMusicPath.Text);
-        }
 
-        private void lblBreakMusicPath_TextChanged(object sender, EventArgs e)
-        {
+        private void BreakMusicPathChanged(object sender, EventArgs e) =>
             lblMusicBreak.Text = ExtractFileNameFromPath(lblBreakMusicPath.Text);
-        }
 
-        private string ExtractFileNameFromPath(string path) => path.Split('\\').Last();
+        private string ExtractFileNameFromPath(string path) => 
+            path.Split('\\').Last();
     }
 }

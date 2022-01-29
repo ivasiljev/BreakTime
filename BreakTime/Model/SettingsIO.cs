@@ -9,13 +9,11 @@ namespace BreakTime.Model
     {
         public static string SettingsPath { get; set; } = "Settings.json";
 
-        public static void SaveSettings(Entities.SettingsStorage settings) => SaveSettings(SettingsPath, settings);
-        public static Entities.SettingsStorage LoadSettings()
-        {
-            Entities.SettingsStorage settings = LoadSettings(SettingsPath);
-            settings ??= new Entities.SettingsStorage();
-            return settings;
-        }
+        public static void SaveSettings(Entities.SettingsStorage settings) => 
+            SaveSettings(SettingsPath, settings);
+
+        public static Entities.SettingsStorage LoadSettings() =>
+            LoadSettings(SettingsPath) ?? new Entities.SettingsStorage();
 
         private static void SaveSettings(string filePath, Entities.SettingsStorage settings)
         {

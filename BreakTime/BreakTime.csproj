@@ -114,6 +114,7 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IMainLogic.cs" />
     <Compile Include="Interfaces\ISettingsIO.cs" />
     <Compile Include="Interfaces\ISettingsStorage.cs" />
     <Compile Include="Model\SettingsIO.cs" />
@@ -187,9 +188,8 @@
     <EmbeddedResource Include="Controls\SettingsMenu\Volume.resx">
       <DependentUpon>Volume.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\BreakTime.IO.Music.MusicIO.datasource" />
-    <None Include="Properties\DataSources\BreakTime.Logic.MainLogic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -265,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

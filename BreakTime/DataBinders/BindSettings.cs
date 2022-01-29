@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
-using BreakTime.Entities;
 using BreakTime.Interfaces;
 
 namespace BreakTime.DataBinders
