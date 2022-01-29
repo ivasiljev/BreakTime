@@ -1,0 +1,17 @@
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\NumericUpDownMyDesign.resx
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\NumericUpDownMyDesign.cs
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\NumericUpDownMyDesign.Designer.cs
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\BreakTime.exe.config
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\BreakTime.exe
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\bin\Debug\BreakTime.pdb
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.BreakTime.resources
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.NumericUpDownMyDesign.resources
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.Properties.Resources.resources
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.UserControl1.resources
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTimeApplication.csproj.GenerateResource.Cache
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTimeApplication.csproj.CoreCompileInputs.cache
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.exe
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.pdb
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTimeApplication.csprojResolveAssemblyReference.cache
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTime.UserControl2.resources
+D:\Games\Visual studio projects\C#\BreakTime\BreakTime\obj\Debug\BreakTimeApp.Properties.Resources.resources

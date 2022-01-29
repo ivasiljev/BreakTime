@@ -1,0 +1,3 @@
+Volume=2
+Work finished sound=C:\Users\Public\Music\Sample Music\Звук гонга.mp3
+Break finished sound=C:\Users\Public\Music\Sample Music\Звуки ручья.mp3

@@ -1,0 +1,2 @@
+Work time=020204
+Break time=010200

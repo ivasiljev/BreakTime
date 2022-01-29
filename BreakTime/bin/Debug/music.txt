@@ -1,0 +1,3 @@
+Volume=88
+Work finished sound=C:\Users\Public\Music\Sample Music\Kalimba.mp3
+Break finished sound=C:\Users\Public\Music\Sample Music\Sleep Away.mp3
