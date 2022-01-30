@@ -2,10 +2,14 @@
 
 namespace BreakTime.Logic
 {
+    /// <summary>
+    /// <c>MainLogic</c> initializes objects, defines how different parts of code communicate between each other, 
+    /// controls data access.
+    /// </summary>
     public class MainLogic : IMainLogic
     {
         private SettingsView SettingsViewImp;
-        private Entities.SettingsStorage SettingsStorage;
+        private ISettingsStorage SettingsStorage;
 
         public MainLogic()
         {
@@ -19,6 +23,9 @@ namespace BreakTime.Logic
             DataBinders.BindSettings.Subscribe(SettingsStorage);
         }
 
+        /// <summary>
+        /// Saves stored settings.
+        /// </summary>
         public void SaveSettings() => Model.SettingsIO.SaveSettings(new Entities.SettingsStorage(SettingsStorage));
     }
 }

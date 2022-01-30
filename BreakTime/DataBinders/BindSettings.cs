@@ -6,10 +6,19 @@ namespace BreakTime.DataBinders
 {
     public static class BindSettings
     {
-        // Data object that we want to bind
+        /// <summary>
+        /// Data object to bind.
+        /// </summary>
         private static ISettingsStorage settingsStorage = null;
 
-        // With this method you can bind any object that implements IBindableComponent to 'settingsStorage'
+        /// <summary>
+        /// Binds any object that implements <see cref="IBindableComponent"/> to <see cref="settingsStorage"/>.
+        /// </summary>
+        /// <param name="control">Object to bind.</param>
+        /// <param name="propertyName">Name of property that <i>control</i> has.</param>
+        /// <param name="dataMemberName">Name of property that <see cref="settingsStorage"/> has.</param>
+        /// <exception cref="NullReferenceException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void BindControl(IBindableComponent control, string propertyName, string dataMemberName)
         {
             if (settingsStorage == null) throw new NullReferenceException();
@@ -17,7 +26,11 @@ namespace BreakTime.DataBinders
             control.DataBindings.Add(propertyName, settingsStorage, dataMemberName, false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        // Get link on data object that we want to bind and save it (settingsStorage have to implement ISettingsStorage)
+        /// <summary>
+        /// Gets link on data object to bind and save it.
+        /// </summary>
+        /// <param name="settingsStorage">Link on data object to bind.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void Subscribe(ISettingsStorage settingsStorage)
         {
             BindSettings.settingsStorage = settingsStorage ?? throw new ArgumentNullException();

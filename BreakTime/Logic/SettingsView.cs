@@ -5,6 +5,9 @@ using static BreakTime.EventHandlers.SettingsViewEventHandler;
 
 namespace BreakTime.Logic
 {
+    /// <summary>
+    /// Manages settings view logic. Reacts on clicking settings view buttons.
+    /// </summary>
     public class SettingsView
     {
         private IMainLogic MainLogic;
