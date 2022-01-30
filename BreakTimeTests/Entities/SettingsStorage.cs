@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Moq;
+using System;
+using System.ComponentModel;
 using Xunit;
 
 namespace BreakTimeTests.Entities.SettingsStorage
@@ -88,6 +90,45 @@ namespace BreakTimeTests.Entities.SettingsStorage
 
             // Assert
             Assert.Throws<ArgumentNullException>(action);
+        }
+    }
+
+    public class OnPropertyChangedShould
+    {
+        public class SettingsStorageTest : BreakTime.Entities.SettingsStorage
+        {
+            public SettingsStorageTest() : base()
+            {
+                PropertyChanged += SettingsStorageTest_PropertyChanged;
+            }
+
+            public void SettingsStorageTest_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+            {
+                Trigger();
+            }
+            public virtual void Trigger()
+            {
+
+            }
+        }
+
+        [Fact]
+        public void TriggerPropertyChangedEvent_WhenChangeProperty()
+        {
+            // Assign
+            var settings = new Mock<SettingsStorageTest>();
+            settings.Setup(x => x.Trigger());
+            int CountOfCalls = 0;
+
+            // Act
+            settings.Object.Volume = 1; CountOfCalls++;
+            settings.Object.WorkTime = "1"; CountOfCalls++;
+            settings.Object.BreakTime = "1"; CountOfCalls++;
+            settings.Object.WorkSoundPath = "1"; CountOfCalls++;
+            settings.Object.BreakSoundPath = "1"; CountOfCalls++;
+
+            // Assert
+            settings.Verify(x => x.Trigger(), Times.Exactly(CountOfCalls));
         }
     }
 }
